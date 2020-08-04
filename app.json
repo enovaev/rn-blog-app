@@ -1,19 +1,16 @@
 {
   "expo": {
-    "name": "RN-posts-lesson",
-    "slug": "RN-posts-lesson",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
+    "name": "Self blog",
+    "slug": "rn-self-posts",
+    "privacy": "public",
+    "platforms": ["ios", "android"],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/rn-icon.png",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "image": "./assets/rn-splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#242832"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -22,7 +19,17 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.enovaev.self-blog",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.enovaev.self_blog",
+      "versionCode": 1,
+      "permissions": [
+        "CAMERA",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
     }
   }
 }
