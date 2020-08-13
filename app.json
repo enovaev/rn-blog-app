@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "Self blog",
-    "slug": "rn-self-posts",
+    "name": "Blog app",
+    "slug": "rn-blog-app",
     "privacy": "public",
     "platforms": ["ios", "android"],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/rn-icon.png",
+    "icon": "./assets/blog-app.png",
     "splash": {
-      "image": "./assets/rn-splash.png",
+      "image": "./assets/blog-app.png",
       "resizeMode": "cover",
       "backgroundColor": "#242832"
     },
@@ -20,11 +20,11 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.enovaev.self-blog",
+      "bundleIdentifier": "com.enovaev.blog-app",
       "buildNumber": "1.0.0"
     },
     "android": {
-      "package": "com.enovaev.self_blog",
+      "package": "com.enovaev.blog-app",
       "versionCode": 1,
       "permissions": [
         "CAMERA",

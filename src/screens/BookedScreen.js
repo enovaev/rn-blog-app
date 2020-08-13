@@ -5,7 +5,7 @@ import AppHeaderIcon from '../components/AppHeaderIcon'
 import PostList from '../components/PostList';
 
 const BookedScreen = ({ navigation }) => {
-  const openPostHeadler = (post) => {
+  const openPostHandler = (post) => {
     navigation.navigate('Post', {
       postId: post.id,
       date: post.date,
@@ -14,7 +14,8 @@ const BookedScreen = ({ navigation }) => {
   };
 
   const bookedPosts = useSelector(state => state.post.bookedPosts)
-  return <PostList data={bookedPosts} onOpen={openPostHeadler} />
+
+  return <PostList data={bookedPosts} onOpen={openPostHandler} />
 };
 
 BookedScreen.navigationOptions = ({ navigation }) => ({
@@ -29,6 +30,5 @@ BookedScreen.navigationOptions = ({ navigation }) => ({
     </HeaderButtons>
   ),
 });
-
 
 export default BookedScreen;

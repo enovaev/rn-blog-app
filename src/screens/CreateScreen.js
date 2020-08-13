@@ -1,20 +1,16 @@
 import React, { useState, useRef } from 'react';
+// Utils
 import { useDispatch } from 'react-redux';
 import {
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
-  Button,
-  ScrollView,
-  TouchableWithoutFeedback,
-  Keyboard,
+  View, Text, StyleSheet, TextInput, Button,
+  ScrollView, TouchableWithoutFeedback, Keyboard,
 } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+// Components
 import AppHeaderIcon from '../components/AppHeaderIcon';
-import theme from '../theme';
-import { addPost } from '../store/actions/postAction';
 import PhotoPicker from '../components/PhotoPicker';
+import { addPost } from '../store/actions/postAction';
+import theme from '../theme';
 
 const CreateScreen = ({ navigation }) => {
   const dispatch = useDispatch();

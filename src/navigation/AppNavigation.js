@@ -92,7 +92,8 @@ const BottomNavigator = Platform.OS === 'android'
         drawerLabel: 'Новый пост',
       }
     },
-  }, {
+  },
+    {
     contentOptions: {
       activeTintColor: theme.MAIN_COLOR,
       labelStyle: {

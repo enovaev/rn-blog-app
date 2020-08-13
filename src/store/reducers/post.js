@@ -6,43 +6,32 @@ const initialState = {
   loading: true,
 };
 
+const handlers = {
+  [LOAD_POSTS]: (state, { payload }) => ({
+    ...state,
+    allPosts: payload,
+    bookedPosts: payload.filter(post => post.booked),
+    loading: false,
+  }),
+  [TOGGLE_BOOKED]: (state, { payload }) => {
+    const allPosts = state.allPosts.map(post => post.id === payload
+      ? { ...post, booked: !post.booked}
+      : post);
+    return { ...state, allPosts, bookedPosts: allPosts.filter(post => post.booked) };
+  },
+  [REMOVE_POST]: (state, { payload }) => ({
+    ...state,
+    allPosts: state.allPosts.filter(p => p.id !== payload),
+    bookedPosts: state.bookedPosts.filter(p => p.id !== payload)
+  }),
+  [ADD_POST]: (state, { payload }) => ({
+    ...state,
+    allPosts: [{ ...payload }, ...state.allPosts],
+  }),
+  DEFAULT: state => state,
+};
+
 export const postReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case LOAD_POSTS:
-      return {
-        ...state,
-        allPosts: action.payload,
-        bookedPosts: action.payload.filter(post => post.booked),
-        loading: false,
-      };
-
-    case  TOGGLE_BOOKED:
-      const allPosts = state.allPosts.map(post => {
-        if (post.id === action.payload) {
-          post.booked = !post.booked;
-        }
-        return post;
-      })
-
-      return {
-        ...state,
-        allPosts,
-        bookedPosts: allPosts.filter(post => post.booked),
-      };
-
-    case REMOVE_POST:
-      return {
-        ...state,
-        allPosts: state.allPosts.filter(p => p.id !== action.payload),
-        bookedPosts: state.bookedPosts.filter(p => p.id !== action.payload)
-      };
-
-    case ADD_POST:
-      return {
-        ...state,
-        allPosts: [{ ...action.payload }, ...state.allPosts],
-      };
-
-    default: return state;
-  }
+  const handler = handlers[action.type] || handlers.DEFAULT;
+  return handler(state, action);
 }

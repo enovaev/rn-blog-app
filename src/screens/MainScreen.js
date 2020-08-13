@@ -8,7 +8,7 @@ import { loadPosts } from '../store/actions/postAction';
 import theme from '../theme';
 
 const MainScreen = ({ navigation }) => {
-  const openPostHeadler = (post) => {
+  const openPostHandler = (post) => {
     navigation.navigate('Post', {
       postId: post.id,
       date: post.date,
@@ -33,7 +33,7 @@ const MainScreen = ({ navigation }) => {
     )
   }
 
-  return <PostList data={allPosts} onOpen={openPostHeadler} />
+  return <PostList data={allPosts} onOpen={openPostHandler} />
 };
 
 MainScreen.navigationOptions = ({ navigation }) => ({

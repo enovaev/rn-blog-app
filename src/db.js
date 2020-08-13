@@ -27,7 +27,7 @@ export class DB {
       })
     })
   }
-  static createPost({ text, date, booked, img }) {
+  static createPost({ text, date, img }) {
     return new Promise((resolve, reject) => {
       db.transaction(tx => {
         tx.executeSql(

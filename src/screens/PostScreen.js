@@ -1,10 +1,12 @@
 import React, { useEffect, useCallback } from 'react';
+// Utils
 import { useDispatch, useSelector } from 'react-redux';
 import { View, Text, StyleSheet, Image, Button, ScrollView, Alert } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+// Components
 import AppHeaderIcon from '../components/AppHeaderIcon'
-import theme from '../theme';
 import { toggleBooked, removePost } from '../store/actions/postAction';
+import theme from '../theme';
 
 const PostScreen = ({ navigation }) => {
   const dispatch = useDispatch();
@@ -13,7 +15,7 @@ const PostScreen = ({ navigation }) => {
   const post = useSelector(state => state.post.allPosts.find(p => p.id === postId));
 
   const booked = useSelector(state =>
-    state.post.bookedPosts.some(post => post.id === postId))
+    state.post.bookedPosts.some(post => post.id === postId));
 
   useEffect(() => {
     navigation.setParams({ booked })
@@ -77,7 +79,7 @@ PostScreen.navigationOptions = ({ navigation }) => {
     headerRight: (
       <HeaderButtons HeaderButtonComponent={AppHeaderIcon}>
         <Item
-          title="Take photo"
+          title="Booked"
           iconName={iconName}
           onPress={() => toggleHandler()}
         />
